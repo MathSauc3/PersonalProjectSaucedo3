@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
 
     Vector3 moveDirection;
     
-    Rigidbody rb;
+    public Rigidbody rb;
 
 
     void Start()
