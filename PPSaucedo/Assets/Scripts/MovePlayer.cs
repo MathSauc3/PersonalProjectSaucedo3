@@ -4,42 +4,31 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
+	public Rigidbody PlayerBody;
+	private Vector3 PlayerMovementInput;
 
-    [Header("Movement")]
-    public float moveSpeed;
+	public float Speed;
+	public float JumpForce;
 
-    public Transform orientation;
+	private void Update()
+	{
+		PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+		movePlayer();
+	}
 
-    float horizontalInput;
-    float verticalInput;
+	private void movePlayer()
+	{
+		Vector3 MoveVector = transform.TransformDirection(PlayerMovementInput) * Speed;
+		PlayerBody.velocity = new Vector3(MoveVector.x, PlayerBody.velocity.y, MoveVector.z);
 
-    Vector3 moveDirection;
-    Rigidbody rb;
+		if(Input.GetKeyDown(KeyCode.Space))
+		{
+			PlayerBody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+		}
+	}
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-            rb.freezeRotation = true;
-    }
-    private void Update()
-    {
-        MyInput();
-    }
-    private void FixedUpdate()
-    {
-        movePlayer();
-    }
+	private void MovePlayerCamera()
+	{
 
-    private void MyInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-    }
-
-    private void movePlayer()
-    {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-    }
+	}
 }
