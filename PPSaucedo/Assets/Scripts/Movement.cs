@@ -43,6 +43,6 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        
+        MyInput();
     }
 }
