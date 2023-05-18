@@ -436,7 +436,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 649321674}
-  - component: {fileID: 649321672}
   - component: {fileID: 649321675}
   - component: {fileID: 649321676}
   m_Layer: 0
@@ -446,21 +445,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &649321672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649321671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c586bba8ef69f488f9ac9fd1edbb91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensX: 5
-  sensY: 5
-  orientation: {fileID: 64652775}
 --- !u!4 &649321674
 Transform:
   m_ObjectHideFlags: 0
@@ -469,7 +453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649321671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.227, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -492,8 +476,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  groundDrag: 5
+  playerHeight: 4
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1024
+  jumpForce: 20
+  jumpCooldown: 0.25
+  airmultiplier: 1
+  jumpKey: 32
   orientation: {fileID: 64652775}
-  rb: {fileID: 0}
+  rb: {fileID: 649321676}
 --- !u!54 &649321676
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -504,12 +497,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_Constraints: 80
+  m_CollisionDetection: 1
 --- !u!1 &814099806
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +986,7 @@ GameObject:
   - component: {fileID: 1629414340}
   - component: {fileID: 1629414339}
   - component: {fileID: 1629414338}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1444,7 +1437,7 @@ GameObject:
   - component: {fileID: 2045468300}
   - component: {fileID: 2045468299}
   - component: {fileID: 2045468298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
