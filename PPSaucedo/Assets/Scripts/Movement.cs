@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(jumpKey) && grounded )
+        if (Input.GetKey(jumpKey) &&  && grounded )
         {
             readyToJump = false;
 
@@ -55,7 +55,6 @@ public class Movement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
 
-            Console.WriteLine("jump");
         }
     }
 
